@@ -1,5 +1,5 @@
 package = "sendgrid"
-version = "scm-1"
+version = "0.1.0-1"
 source = {
    url = "https://github.com/meetme2meat/sendgrid-lua"
 }
