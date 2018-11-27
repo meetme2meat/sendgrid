@@ -1,14 +1,14 @@
 package = "sendgrid"
 version = "0.1.0-1"
 source = {
-   url = "https://github.com/meetme2meat/sendgrid-lua"
+   url = "https://github.com/meetme2meat/sendgrid"
 }
 description = {
    summary = "Sendgrid V3 API to send mail",
    detailed = [[
       Send email using sendgrid.
    ]],
-   homepage = "https://github.com/meetme2meat/sendgrid-lua",
+   homepage = "git://github.com/meetme2meat/sendgrid",
    license = "MIT"
 }
 dependencies = {
