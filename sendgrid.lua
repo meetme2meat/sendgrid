@@ -1,4 +1,4 @@
-
+require('socket')
 local ltn12 = assert(require("ltn12"))
 local cjson = assert(require('cjson'))
 local https = assert(require("ssl.https"))
@@ -26,7 +26,6 @@ function SendGrid:send(opts)
   end
 
   personalization[1].to = opts.to
-
   if opts.cc ~= nil then
     personalization[1].cc = opts.cc
   end
@@ -82,10 +81,15 @@ function SendGrid:send(opts)
     end
   end
 
+  if opts.attachments ~= nil then
+    if type(opts.attachments) ~= 'table' then
+    else
+      params.attachments = opts.attachments
+    end
+  end
   local response = {}
-  print(self.token)
   local payload = cjson.encode(params)
-  print(payload)
+
   local one, code, headers, status = https.request {
     method = 'POST',
     url = 'https://api.sendgrid.com/v3/mail/send',
